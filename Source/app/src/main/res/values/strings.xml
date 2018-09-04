@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FoodAdder</string>
+    <string name="button1_main">Zeskanuj kod kreskowy</string>
+    <string name="button2_main">Dodaj produkt do Tabeli Kalorii</string>
+    <string name="button3_main">Historia skanowania</string>
+    <string name="tytul">Witaj w FoodAdderze!</string>
+    <string name="podtytul">Wybierz jedną z dostępnych opcji...</string>
+    <string name="result_text_default">Please focus camera to QR Code</string>
+</resources>
