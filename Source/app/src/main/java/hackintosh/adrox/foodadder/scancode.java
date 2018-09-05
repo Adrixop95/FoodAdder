@@ -1,6 +1,5 @@
 package hackintosh.adrox.foodadder;
 
-import android.*;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -63,6 +62,7 @@ public class scancode extends AppCompatActivity {
                 .build();
         cameraSource = new CameraSource
                 .Builder(this, barcodeDetector)
+                .setAutoFocusEnabled(true)
                 .setRequestedPreviewSize(640, 480)
                 .build();
         //Add Event
