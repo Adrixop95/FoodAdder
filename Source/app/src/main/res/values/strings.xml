@@ -6,4 +6,5 @@
     <string name="tytul">Witaj w FoodAdderze!</string>
     <string name="podtytul">Wybierz jedną z dostępnych opcji...</string>
     <string name="result_text_default">Zbliż się do kodu...</string>
+    <string name="scanbutton">Zeskanuj nowy przedmiot</string>
 </resources>
