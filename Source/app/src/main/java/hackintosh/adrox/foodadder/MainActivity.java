@@ -4,12 +4,25 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity{
     Button scancode_button;
     Button add_button;
     Button history_button;
+
+    IntentResult result;
+
+    public String[] history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v){
-                Intent i = new Intent(getApplicationContext(),scancode.class);
-                startActivity(i);
+                IntentIntegrator integrator = new IntentIntegrator(MainActivity.this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("Zbliż skaner do kodu produktu");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(true);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
             }
         });
 
@@ -35,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent i = new Intent(getApplicationContext(),add.class);
                 startActivity(i);
+
             }
         });
 
@@ -42,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v){
+
                 Intent i = new Intent(getApplicationContext(),history.class);
                 startActivity(i);
             }
@@ -49,5 +69,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null){
+            if(result.getContents()==null){
+                Toast.makeText(this, "Anulowałeś skanowanie", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(this, result.getContents(),Toast.LENGTH_LONG).show();
+
+
+            }
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 
 }
