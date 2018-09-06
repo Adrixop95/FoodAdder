@@ -2,6 +2,7 @@ package hackintosh.adrox.foodadder;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +30,7 @@ public class history extends ListActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
         setListAdapter(adapter);
 
-        scancode_button = (Button) findViewById(R.id.addBtn);
+        scancode_button = (Button) findViewById(R.id.hist_button);
         listview = (ListView) findViewById(android.R.id.list);
 
         scancode_button.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +65,13 @@ public class history extends ListActivity {
                 listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(history.this, "Clicked at" + position, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(history.this, "Clicked at" + position, Toast.LENGTH_LONG).show();
+
+                        String url = "https://www.barcodelookup.com/" + result.getContents().toString();
+                        Intent internetopen = new Intent(Intent.ACTION_VIEW);
+                        internetopen.setData(Uri.parse(url));
+                        startActivity(internetopen);
+
                     }
                 });
 

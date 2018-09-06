@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">FoodAdder</string>
-    <string name="button1_main">Zeskanuj kod kreskowy</string>
+    <string name="button1_main">Skanowanie kodu produktu</string>
     <string name="button2_main">Dodaj produkt do Tabeli Kalorii</string>
-    <string name="button3_main">Historia skanowania</string>
     <string name="tytul">Witaj w FoodAdderze!</string>
-    <string name="podtytul">Wybierz jedną z dostępnych opcji...</string>
-    <string name="result_text_default">Zbliż się do kodu...</string>
+    <string name="podtytul">Wybierz jedną z dostępnych opcji.</string>
+    <string name="result_text_default">Zbliż się do kodu</string>
     <string name="scanbutton">Zeskanuj nowy przedmiot</string>
+    <string name="hist_title">Skanowanie kodu kreskowego</string>
+    <string name="history_subtitle">Aby dodać nowy kod wybierz opcję skanowania a następnie wybierz zeskanowany kod z listy.</string>
 </resources>
